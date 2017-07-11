@@ -9,14 +9,6 @@ jobs:
   - put: hello-world-docker-image
     params:
       build: resource-tutorial/docker
-- name: Image-Pull-and-Run
-  plan:
-  - task: say-hello
-    config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source: {repository: dhaneshande/nodeappbuild}
       run:
         path: /bin/bash
         args:
@@ -27,7 +19,7 @@ jobs:
           cd /usr/src/app
           ls -R
           npm install
-          npm start      
+          npm start
 
 resources:
 - name: resource-tutorial
