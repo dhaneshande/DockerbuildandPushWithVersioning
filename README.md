@@ -1,5 +1,4 @@
-Docker Build and push to docker hub with version number i.e with tag name
-
+Docker Build and push to docker hub and then pull it and run it 
 commands 
 
 fly set-pipeline --target lite --config pipeline.yml --pipeline runwithversion --non-interactive --load-vars-from credentials.yml
