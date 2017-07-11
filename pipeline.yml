@@ -14,7 +14,7 @@ resources:
 - name: resource-tutorial
   type: git
   source:
-    uri: https://github.com/dhaneshande/NodewithDockerandPCF.git
+    uri: https://github.com/dhaneshande/DockerbuildandPushWithVersioning.git
 
 - name: hello-world-docker-image
   type: docker-image
