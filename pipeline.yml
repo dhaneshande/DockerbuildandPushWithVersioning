@@ -1,0 +1,25 @@
+---
+jobs:
+- name: job-publish
+  public: true
+  serial: true
+  plan:
+  - get: resource-tutorial
+    trigger: true
+  - put: hello-world-docker-image
+    params:
+      build: resource-tutorial/docker
+
+resources:
+- name: resource-tutorial
+  type: git
+  source:
+    uri: https://github.com/dhaneshande/NodewithDockerandPCF.git
+
+- name: hello-world-docker-image
+  type: docker-image
+  source:
+    email: {{docker-hub-email}}
+    username: {{docker-hub-username}}
+    password: {{docker-hub-password}}
+    repository: {{docker-hub-image-hello-world}}
