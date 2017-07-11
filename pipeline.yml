@@ -10,8 +10,10 @@ jobs:
     params:
       build: resource-tutorial/docker
 - name: Image-Pull-and-Run
+  public: true
+  serial: true
   plan:
-  - get: resource-tutorial
+  - get: hello-world-docker-image
     trigger: true
   - task: say-hello
     config:
