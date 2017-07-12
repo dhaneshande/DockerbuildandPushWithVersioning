@@ -23,6 +23,7 @@ jobs:
       image_resource:
         type: docker-image
         source: {repository: dhaneshande/nodeappbuild}
+        tag: v1
         inputs:
         - name: job-publish
       run:
@@ -34,7 +35,7 @@ jobs:
           ls -R
           cd /usr/src/app
           ls -R
-          npm start     
+          npm start  
 
 resources:
 - name: resource-tutorial
@@ -49,3 +50,4 @@ resources:
     username: {{docker-hub-username}}
     password: {{docker-hub-password}}
     repository: {{docker-hub-image-hello-world}}
+    tag: {{docker-tag-name}}
