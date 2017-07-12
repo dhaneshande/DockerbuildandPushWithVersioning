@@ -34,8 +34,7 @@ jobs:
           ls -R
           cd /usr/src/app
           ls -R
-          npm install
-          npm start      
+          npm start     
 
 resources:
 - name: resource-tutorial
