@@ -22,7 +22,7 @@ jobs:
       platform: linux
       image_resource:
         type: docker-image
-        source: {repository: dhaneshande/nodeappbuild}
+        source: {repository: dhaneshande/nodeappbuild:v1}
         inputs:
         - name: job-publish
       run:
