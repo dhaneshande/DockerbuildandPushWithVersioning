@@ -1,14 +1,15 @@
 #!/bin/sh
 
-set -e
-set -o errexit
-set -o errtrace
+set -e # fail fast
+set -x # print commands
 
-PACKAGE_VERSION=$(cat package.json \
-  | grep version \
-  | head -1 \
-  | awk -F: '{ print $2 }' \
-  | sed 's/[",]//g' \
-  | tr -d '[[:space:]]')
-  
-echo $ PACKAGE_VERSION
+git clone resource-gist updated-gist
+
+cd updated-gist
+echo $(date) > bumpme
+
+git config --global user.email "nobody@concourse.ci"
+git config --global user.name "Concourse"
+
+git add .
+git commit -m "Bumped date"
