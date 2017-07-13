@@ -7,20 +7,7 @@ jobs:
   - get: resource-tutorial
     trigger: true
   - task: get-version
-    run:
-        path: /bin/bash
-        args:
-        - -exc
-        - |
-          pwd
-          ls -R
-          PACKAGE_VERSION=$(cat package.json \
-          | grep version \
-          | head -1 \
-          | awk -F: '{ print $2 }' \
-          | sed 's/[",]//g' \
-          | tr -d '[[:space:]]')
-          echo $ PACKAGE_VERSION
+    file: resource-tutorial/docker/getversion.yml
   - put: hello-world-docker-image
     params:
       build: resource-tutorial/docker
