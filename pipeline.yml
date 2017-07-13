@@ -6,6 +6,8 @@ jobs:
   plan:
   - get: resource-tutorial
     trigger: true
+  - task: get-version
+    file: resource-tutorial/docker/getversion.sh
   - put: hello-world-docker-image
     params:
       build: resource-tutorial/docker
