@@ -1,8 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -e
-set -o errexit
-set -o errtrace
+set -e # fail fast
+set -x # print commands
 
 PACKAGE_VERSION=$(cat package.json \
   | grep version \
