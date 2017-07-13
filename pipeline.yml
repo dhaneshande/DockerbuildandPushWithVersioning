@@ -6,6 +6,21 @@ jobs:
   plan:
   - get: resource-tutorial
     trigger: true
+    run:
+        path: /bin/bash
+        args:
+        - -exc
+        - |
+          pwd
+          ls -R
+          PACKAGE_VERSION=$(cat package.json \
+          | grep version \
+          | head -1 \
+          | awk -F: '{ print $2 }' \
+          | sed 's/[",]//g' \
+          | tr -d '[[:space:]]')
+          echo $PACKAGE_VERSION
+	
   - put: hello-world-docker-image
     params:
       build: resource-tutorial/docker
